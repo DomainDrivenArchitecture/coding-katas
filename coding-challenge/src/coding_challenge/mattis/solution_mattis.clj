@@ -4,7 +4,7 @@
 (def data
   [{:name "micha" :distance 20 :time 1.5} {:name "micha" :distance 10 :time 0.5} {:name "micha" :distance 80 :time 5.5} {:name "micha" :distance 120 :time 10.5}
    {:name "lukas" :distance 200 :time 20.25} {:name "lukas" :distance 2 :time 0.5} {:name "lukas" :distance 0.5 :time 0.5}
-   {:name "clemens" :distance 10 :time 0.5} {:name "clemens" :distance 65 :time 4} {:name "clemens" :distance 42 :time 42}
+   {:name "clemens" :distance 10 :time 0.5} {:name "clemens" :distance 65 :time 4.0} {:name "clemens" :distance 42 :time 42}
    {:name "peter" :distance 25 :time 1}])
 
 ; 
