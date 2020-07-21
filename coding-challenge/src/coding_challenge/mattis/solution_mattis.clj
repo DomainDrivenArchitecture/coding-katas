@@ -19,6 +19,7 @@
 )
 
 ; calculate the distance of all meissa members travelled together
+; Hint: Not sure where Peter works but it is probably not meissa
 (defn distance-sum-of-meissa-members
   [data]
   ;TODO: Write beautiful code :)
