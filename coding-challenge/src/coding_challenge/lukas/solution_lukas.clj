@@ -1,4 +1,4 @@
-(ns coding-challenge.core.micha.solution-micha
+(ns coding-challenge.lukas.solution-lukas
   (:require [clojure.core.reducers :as r]))
 
 (def data

@@ -1,4 +1,4 @@
-(ns coding-challenge.core.mattis.solution-mattis
+(ns coding-challenge.mattis.solution-mattis
   (:require [clojure.core.reducers :as r]))
 
 (def data
