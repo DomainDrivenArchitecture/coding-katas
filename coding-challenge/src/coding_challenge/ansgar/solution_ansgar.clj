@@ -1,4 +1,4 @@
-(ns coding-challenge.core.ansgar.solution-ansgar
+(ns coding-challenge.ansgar.solution-ansgar
   (:require [clojure.core.reducers :as r]))
 
 (def data
@@ -15,21 +15,23 @@
 ; calculate the average kilometres per hour and add them to data and return it
 (defn add-average-kph-to-data
   [data]
-  ;TODO: Write beautiful code :)
-)
+  (map #(conj % {:kph (/ (:distance %) (:time %))}) data))
+
 
 ; calculate the distance of all meissa members travelled together
-; Hint: Not sure where Peter works but it is probably not meissa
+(defn isInMeissa? [x]
+  (contains? #{"micha" "lukas" "clemens" "jan" "ansgar"} (:name x)))
+
 (defn distance-sum-of-meissa-members
   [data]
-  ;TODO: Write beautiful code :)
-  )
+  (r/fold + (map :distance (filterv isInMeissa? data))))
+
 
 ; add all people in & args to data and return it
 (defn add-to-data
   [data & args]
-  ;TODO: Write beautiful code :)
-)
+  (into [] (concat data args)))
+
 
 ;
 ; Here it gets a bit more tricky
@@ -39,8 +41,8 @@
 ; Implement the well known map function without using it directly (ideally with functions such as fold known from functional programming)
 (defn my-map
   "taks a function f and applies it on every element of list xs"
-  [f xs]
+  [f xs])
   ;TODO: Write beautiful code :)
-)
+
 
 
