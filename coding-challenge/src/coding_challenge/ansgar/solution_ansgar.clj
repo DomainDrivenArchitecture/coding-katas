@@ -40,9 +40,6 @@
 
 ; Implement the well known map function without using it directly (ideally with functions such as fold known from functional programming)
 (defn my-map
-  "taks a function f and applies it on every element of list xs"
-  [f xs])
-  ;TODO: Write beautiful code :)
-
-
-
+  "takes a function f and applies it on every element of list xs"
+  [f x]
+  (if (not (empty? x)) (conj (my-map f (rest x)) (f (first x)))))
