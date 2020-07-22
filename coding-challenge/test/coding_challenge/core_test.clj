@@ -33,8 +33,8 @@
 
 (deftest test-add-average-kph-to-data
   (testing "FIXME, I fail."
-    (is (= (core/add-average-kph-to-data core/data) solution-1))
-    ))
+    (is (= (core/add-average-kph-to-data core/data) solution-1))))
+    
 
 (deftest test-distance-sum-of-meissa-members
   (testing
@@ -48,5 +48,5 @@
 (deftest test-my-map
   (testing 
    (is (= (map inc [1 23 4 534 34 3])
-          (core/my-map inc [1 23 4 534 34 3])
-          ))))
+          (core/my-map inc [1 23 4 534 34 3])))))
+          
