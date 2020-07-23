@@ -1,6 +1,7 @@
 (ns coding-challenge.ansgar.solution-ansgar
   (:require [clojure.core.reducers :as r]))
 
+
 (def data
   [{:name "micha" :distance 20 :time 1.5} {:name "micha" :distance 10 :time 0.5} {:name "micha" :distance 80 :time 5.5} {:name "micha" :distance 120 :time 10.5}
    {:name "lukas" :distance 200 :time 20.25} {:name "lukas" :distance 2 :time 0.5} {:name "lukas" :distance 0.5 :time 0.5}
@@ -20,7 +21,7 @@
 
 ; calculate the distance of all meissa members travelled together
 (defn isInMeissa? [x]
-  (contains? #{"micha" "lukas" "clemens" "jan" "ansgar"} (:name x)))
+  (contains? #{"micha" "lukas" "clemens" "jan" "mattis" "ansgar"} (:name x)))
 
 (defn distance-sum-of-meissa-members
   [data]
