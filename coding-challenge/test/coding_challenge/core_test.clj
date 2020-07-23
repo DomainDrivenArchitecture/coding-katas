@@ -1,7 +1,9 @@
 (ns coding-challenge.core-test
   (:require [clojure.test :refer :all]
             ;add your solution namespace here!
-            [coding-challenge.jan.solution-jan :as core]))
+            [coding-challenge.jan.solution-jan :as core]
+            [coding-challenge.clemens.solution-clemens :as core]
+            ))
 
 (def solution-1
   [{:name "micha", :distance 20, :time 1.5, :kph 13.333333333333334}
