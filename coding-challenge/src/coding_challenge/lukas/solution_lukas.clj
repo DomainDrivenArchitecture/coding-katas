@@ -15,20 +15,23 @@
 ; calculate the average kilometres per hour and add them to data and return it
 (defn add-average-kph-to-data
   [data]
-  ;TODO: Write beautiful code :)
+  (map #(assoc % :kph (/ (:distance %) (:time %))) data)
 )
 
 ; calculate the distance of all meissa members travelled together
 ; Hint: Not sure where Peter works but it is probably not meissa
 (defn distance-sum-of-meissa-members
   [data]
-  ;TODO: Write beautiful code :)
-  )
+  (let [filtered-map (filter #(contains? #{"micha" "lukas" "clemens" "jan" "lucca" "ansgar" "mattis"} (:name %)) data)]
+    (r/fold + (map :distance filtered-map)))
+)
 
 ; add all people in & args to data and return it
 (defn add-to-data
   [data & args]
-  ;TODO: Write beautiful code :)
+  (if (empty? args)
+    data
+    (into [] (concat data args)))
 )
 
 ;
@@ -40,7 +43,9 @@
 (defn my-map
   "taks a function f and applies it on every element of list xs"
   [f xs]
-  ;TODO: Write beautiful code :)
+  (when (seq xs)
+    (conj 
+     (my-map f (rest xs)) 
+     (f (first xs))))
 )
-
 
