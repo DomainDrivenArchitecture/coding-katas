@@ -1,5 +1,4 @@
-(ns coding-challenge.micha.solution-micha
-  (:require [clojure.core.reducers :as r]))
+(ns coding-challenge.micha.solution-micha)
 
 (def data
   [{:name "micha" :distance 20 :time 1.5} {:name "micha" :distance 10 :time 0.5} {:name "micha" :distance 80 :time 5.5} {:name "micha" :distance 120 :time 10.5}
@@ -15,21 +14,25 @@
 ; calculate the average kilometres per hour and add them to data and return it
 (defn add-average-kph-to-data
   [data]
-  ;TODO: Write beautiful code :)
-)
+  (map (fn [elem] (assoc elem :kph (/ (:distance elem) (:time elem))))
+       data))
 
 ; calculate the distance of all meissa members travelled together
 ; Hint: Not sure where Peter works but it is probably not meissa
+(defn meissa? [elem]
+  (contains? #{"micha" "lukas" "clemens"} 
+             (:name elem)))
+
 (defn distance-sum-of-meissa-members
   [data]
-  ;TODO: Write beautiful code :)
-  )
+  (reduce + 
+          (map :distance 
+               (filter meissa? data))))
 
 ; add all people in & args to data and return it
 (defn add-to-data
   [data & args]
-  ;TODO: Write beautiful code :)
-)
+  (apply conj data args))
 
 ;
 ; Here it gets a bit more tricky
@@ -40,7 +43,12 @@
 (defn my-map
   "taks a function f and applies it on every element of list xs"
   [f xs]
-  ;TODO: Write beautiful code :)
-)
-
-
+  (loop [input xs
+         output []]
+    (let [head (first input)]
+      (if (nil? head)
+        output
+        (recur (rest input)
+               (conj output
+                     (apply f (list head))))
+        ))))

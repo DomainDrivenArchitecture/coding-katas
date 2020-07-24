@@ -1,9 +1,7 @@
-(ns coding-challenge.core-test
+(ns coding-challenge.micha.solution-micha-test
   (:require [clojure.test :refer :all]
             ;add your solution namespace here!
-            [coding-challenge.jan.solution-jan :as core]
-            [coding-challenge.clemens.solution-clemens :as core]
-            ))
+            [coding-challenge.micha.solution-micha :as sut]))
 
 (def solution-1
   [{:name "micha", :distance 20, :time 1.5, :kph 13.333333333333334}
@@ -35,22 +33,23 @@
 
 (deftest test-add-average-kph-to-data
   (testing "FIXME, I fail."
-    (is (= (core/add-average-kph-to-data core/data) solution-1))))
-    
+    (is (= solution-1
+           (sut/add-average-kph-to-data sut/data)))
+    ))
 
 (deftest test-distance-sum-of-meissa-members
   (testing
    (is (= 
         549.5
-        (core/distance-sum-of-meissa-members core/data)))))
+        (sut/distance-sum-of-meissa-members sut/data)))))
 
 (deftest test-add-to-data
   (testing 
    (is (= solution-add-to-data
-          (core/add-to-data core/data {:name "lustig" :distance 1 :time 1})))))
+          (sut/add-to-data sut/data {:name "lustig" :distance 1 :time 1})))))
 
 (deftest test-my-map
   (testing 
    (is (= (map inc [1 23 4 534 34 3])
-          (core/my-map inc [1 23 4 534 34 3])))))
-          
+          (sut/my-map inc [1 23 4 534 34 3])
+          ))))
