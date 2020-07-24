@@ -15,20 +15,21 @@
 ; calculate the average kilometres per hour and add them to data and return it
 (defn add-average-kph-to-data
   [data]
-  ;TODO: Write beautiful code :)
+  ;(interleave data (map #((hash-map :kph (/ (:distance %) (:time %)))) data))
 )
 
 ; calculate the distance of all meissa members travelled together
 ; Hint: Not sure where Peter works but it is probably not meissa
 (defn distance-sum-of-meissa-members
   [data]
-  ;TODO: Write beautiful code :)
+  (apply + 
+         (map :distance (filter #(contains? #{"micha","lukas","jan","clemens","ansgar","mattis"} (:name %)) data)))
   )
 
 ; add all people in & args to data and return it
 (defn add-to-data
   [data & args]
-  ;TODO: Write beautiful code :)
+  (merge data args)
 )
 
 ;
@@ -38,9 +39,11 @@
 
 ; Implement the well known map function without using it directly (ideally with functions such as fold known from functional programming)
 (defn my-map
-  "taks a function f and applies it on every element of list xs"
+  "takes a function f and applies it on every element of list xs"
   [f xs]
-  ;TODO: Write beautiful code :)
+  (if (empty? xs)
+    empty
+    (cons (f (first xs)) (map f (rest xs))))
 )
 
 
