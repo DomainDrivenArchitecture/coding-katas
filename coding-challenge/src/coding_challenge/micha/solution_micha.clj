@@ -43,12 +43,8 @@
 (defn my-map
   "taks a function f and applies it on every element of list xs"
   [f xs]
-  (loop [input xs
-         output []]
+  (loop [input xs output []]
     (let [head (first input)]
       (if (nil? head)
         output
-        (recur (rest input)
-               (conj output
-                     (apply f (list head))))
-        ))))
+        (recur (rest input) (conj output (apply f (list head))))))))
